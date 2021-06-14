@@ -1,0 +1,49 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.site-wrapper {
+  margin: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 40px;
+}
+
+.box-one {
+  margin-left: 100px;
+  cursor: pointer;
+  transition: transform 0.8s ease;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 1px 1px rgba(75, 66, 66, 0.2);
+  font-weight: bold;
+  backface-visibility: hidden;
+  transform: rotate(45deg) skewX(45deg);
+}
+
+.box-two {
+  margin-left: 100px;
+  cursor: pointer;
+  transition: transform 0.8s ease;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 1px 1px rgba(75, 66, 66, 0.2);
+  font-weight: bold;
+  backface-visibility: hidden;
+  transform: rotate(-45deg) skewX(-45deg);
+}
+
+/*# sourceMappingURL=learn.css.map */
