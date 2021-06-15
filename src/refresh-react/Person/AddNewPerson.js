@@ -1,18 +1,22 @@
+import { lorem } from "faker";
 import { useState } from "react";
 
 export default function AddNewPerson(props) {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
+  const [about, setAbout] = useState("");
 
   const addPerson = (e) => {
     e.preventDefault();
-    props.addPerson(name, age);
+    props.addPerson(name, age, lorem.paragraph());
     setName("");
     setAge("");
+    setAbout("");
   };
+
   return (
     <div className="container p-4 shadow-sm mb-4">
-      <form>
+      <form autoComplete="off">
         <div className="mb-3">
           <label
             htmlFor="exampleInputEmail1"
@@ -45,6 +49,21 @@ export default function AddNewPerson(props) {
             value={age}
             onChange={(e) => setAge(e.target.value)}
           />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="exampleFormControlTextarea1"
+            className="form-label text-success fs-4"
+          >
+            About person
+          </label>
+          <textarea
+            className="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            value={about}
+            onChange={(e) => setAbout(e.target.value)}
+          ></textarea>
         </div>
         <button
           className="btn btn-info ps-4 pe-4 text-uppercase text-white"

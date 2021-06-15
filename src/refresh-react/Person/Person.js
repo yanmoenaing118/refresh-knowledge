@@ -4,10 +4,15 @@ export default function Person(props) {
     e.stopPropagation();
     props.deletePerson(props.id);
   };
+
+  const getAboutPerson = (e) => {
+    e.stopPropagation();
+    props.showAboutPerson(props.id);
+  };
   return (
     <div
       className="col-12 border rounded p-3 shadow-sm mb-4 text-success"
-      onClick={(e) => props.changeName(props.id, "Love")}
+      onClick={(e) => props.updatePerson(props.id)}
     >
       <div className="d-flex justify-content-between">
         <span className="h5 text-uppercase">Name</span>{" "}
@@ -19,9 +24,9 @@ export default function Person(props) {
       <div className="d-flex justify-content-between">
         <button
           className="btn btn-info text-uppercase text-white"
-          onClick={deletePerson}
+          onClick={getAboutPerson}
         >
-          <i className="bi-pencil"></i>
+          <i className="bi-info-square"></i>
         </button>
         <button
           className="btn btn-danger text-uppercase"

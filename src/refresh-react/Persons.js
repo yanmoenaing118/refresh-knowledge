@@ -11,8 +11,9 @@ export default function Persons(props) {
             name={person.name}
             age={person.age}
             id={person.id}
-            changeName={props.changeName}
+            updatePerson={props.updatePerson}
             deletePerson={props.deletePerson}
+            showAboutPerson={props.showAboutPerson}
           />
         );
       })}
