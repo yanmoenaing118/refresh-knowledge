@@ -45,35 +45,23 @@ class PersonApp extends Component {
   updatePerson(id) {
     let person = this.state.persons.find((person) => person.id === id);
     const name = faker.name.firstName();
-    fetch(`http://localhost:9000/persons/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name,
-        age: Math.round(Math.random() * 100),
-        about: person.about,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
+    db.collection("persons")
+      .doc(id)
+      .set({
+        ...person,
+        name,
+      })
+      .then(() => {
         let personIndex = this.state.persons.findIndex(
           (person) => person.id === id
         );
-        let person = this.state.persons.find((person) => person.id === id);
-
-        person.name = data.name;
-        person.age = data.age;
-
+        person.name = name;
         this.setState((prevState) => {
           prevState.persons[personIndex] = { ...person };
           return prevState;
         });
       })
-      .catch((err) => {
-        console.error(err);
-      });
+      .catch((err) => console.error(err));
   }
 
   addPerson(name, age, about) {
